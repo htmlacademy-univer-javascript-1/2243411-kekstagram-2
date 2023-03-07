@@ -8,15 +8,17 @@ const randomNumber = function (firstNumber, lastNumber) {
     const message = 'Ошибка!Число не может быть меньше нуля';
     return message;
   }
-  let number = firstNumber + Math.random() * (lastNumber + 1 - firstNumber); //источник-learn.javascript.ru/task/random-int-min-max
+  const number = firstNumber + Math.random() * (lastNumber + 1 - firstNumber); //источник-learn.javascript.ru/task/random-int-min-max
   return Math.floor(number);
 };
+randomNumber(2,3);
 
 //Функция для проверки максимальной длины строки
 const lineLimit = function (textString, maxLength) {
-  let string = textString.length;
+  const string = textString.length;
   if (string > maxLength) {
     return false;
   }
   return true;
 };
+lineLimit('hello', 140)
