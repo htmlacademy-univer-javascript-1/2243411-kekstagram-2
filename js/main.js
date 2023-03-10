@@ -21,4 +21,4 @@ const lineLimit = function (textString, maxLength) {
   }
   return true;
 };
-lineLimit('hello', 140)
+lineLimit('hello', 140);
