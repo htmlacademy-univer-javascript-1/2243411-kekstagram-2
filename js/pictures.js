@@ -1,7 +1,4 @@
-
-import {photos} from './data.js';
-
-const photosArray = photos();
+import {openBigPhoto} from './big-photo.js';
 
 const pictures = document.querySelector('.pictures');
 
@@ -9,20 +6,36 @@ const picturesTemplate = document.querySelector('#picture').content.querySelecto
 
 const fragment = document.createDocumentFragment();
 
-photosArray.forEach(({url, likes, comments}) => {
-  const pictureTemplate = picturesTemplate.cloneNode(true);
-  const pictureImg = pictureTemplate.querySelector('.picture__img');
-  const pictureLikes = pictureTemplate.querySelector('.picture__likes');
-  const pictureComments = pictureTemplate.querySelector('.picture__comments');
+let photos = [];
 
-  pictureImg.src = url;
-  pictureLikes.textContent = likes;
-  pictureComments.textContent = comments.length;
+const showPhoto = (photosArray) => {
+  photos = photosArray;
+  const arr = photosArray || [];
+  arr.forEach(({url, comments, likes}, index)  => {
+    const miniatureElement = picturesTemplate.cloneNode(true);
+    miniatureElement.querySelector('.picture__img').setAttribute('photo-index', index);
+    miniatureElement.querySelector('.picture__img').src = url;
+    miniatureElement.querySelector('.picture__likes').textContent = likes;
+    miniatureElement.querySelector('.picture__comments').textContent = comments.length;
 
-  fragment.append(pictureTemplate);
-});
+    fragment.appendChild(miniatureElement);
+  });
+  pictures.appendChild(fragment);
+};
 
-const addPictures = () => pictures.appendChild(fragment);
-const picturesArray = addPictures();
+const hidePhotos = () => {
+  pictures.querySelectorAll('.picture').forEach((miniatureElement) => {
+    miniatureElement.remove();
+  });
+};
 
-export {picturesArray};
+const photoClick = function (evt) {
+  if (evt.target.nodeName === 'IMG') {
+    evt.preventDefault();
+    openBigPhoto(photos[evt.target.getAttribute('photo-index')]);
+  }
+};
+
+pictures.addEventListener('click', photoClick);
+
+export {showPhoto, hidePhotos};
