@@ -17,6 +17,10 @@ const DESCRIPTION = [
 const COMMENTS_COUNT_MAX = 6;
 const COMMENTS_COUNT_MIN = 2;
 const result = [];
+const MIN_LIKES = 15;
+const MAX_LIKES = 200;
+const NUMBER_IMG = 6;
+const NEED_MASSIV = 25;
 
 const COMMENTS = [
   'Всё отлично!',
@@ -27,4 +31,4 @@ const COMMENTS = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-export {NAMES, DESCRIPTION, COMMENTS_COUNT_MAX, COMMENTS_COUNT_MIN, result, COMMENTS};
+export {NAMES, DESCRIPTION, COMMENTS_COUNT_MAX, COMMENTS_COUNT_MIN, result, COMMENTS, MIN_LIKES, MAX_LIKES, NUMBER_IMG, NEED_MASSIV};
