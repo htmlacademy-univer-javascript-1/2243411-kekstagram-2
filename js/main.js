@@ -1,8 +1,4 @@
 import {createPosts} from './data.js';
-import {picturesArray} from './img.js';
+import {showPhoto} from './pictures.js';
 
-createPosts();
-
-export {picturesArray};
-
-
+(showPhoto(createPosts()));

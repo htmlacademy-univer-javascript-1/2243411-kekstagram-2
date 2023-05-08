@@ -20,6 +20,4 @@ const createPosts = function () {
   });
 };
 
-const photos = () => Array.from({NEED_MASSIV}, createPosts);
-
-export {getComment, createPosts, photos};
+export {getComment, createPosts};
