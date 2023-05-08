@@ -1,3 +1,4 @@
+
 import {photos} from './data.js';
 
 const photosArray = photos();
@@ -22,5 +23,6 @@ photosArray.forEach(({url, likes, comments}) => {
 });
 
 const addPictures = () => pictures.appendChild(fragment);
+const picturesArray = addPictures();
 
-export {addPictures};
+export {picturesArray};
